@@ -1,0 +1,22 @@
+Задание 1.
+SELECT a.login,
+	COUNT(b.id)
+FROM "Orders" AS b
+INNER JOIN "Couriers" AS a
+	ON a.id = b."courierId"
+WHERE "inDelivery" = true
+GROUP BY  a.login;
+
+Задание2.
+SELECT track,
+		
+	CASE
+	WHEN finished=true THEN
+	2
+	WHEN "cancelled"=true THEN
+	-1
+	WHEN "inDelivery"=true THEN
+	1
+	ELSE 0
+	END
+FROM "Orders";
